@@ -39,6 +39,14 @@ app.get('/repeat/:string/:number', (req,res) => {
   // /repeat/hello/5 should print 'hello hello hello hello hello'
   // /repeat/blah/2 should print 'blah blah'
   console.log(req.params);
+  let string = req.params.string.toLowerCase();
+  let number =  parseInt(req.params.number);
+  let stringToSend = '';
+  for (var i = 0; i < number; i++) {
+    stringToSend += ` ${string}`;
+    console.log(stringToSend);
+  };
+  res.send(stringToSend);
 });
 
 
