@@ -8,15 +8,20 @@ let animalArray = [
   {
     name: 'pig',
     noise: 'oink'
-  }, {
+  },{
     name: 'cow',
     noise: 'moo'
-  }, {
+  },{
     name: 'dog',
     noise: 'woof woof'
+  },{
+    name: 'connor',
+    noise: 'uhh'
+  },{
+    name: 'ryan',
+    noise: 'duh'
   }
 ];
-
 // Visiting / should print "Hi there! Welcome to my assignment!"
 app.get('/', (req,res) => {
   res.send('Hi There! Welcome to my assignment!');
@@ -48,12 +53,8 @@ app.get('/repeat/:string/:number', (req,res) => {
   };
   res.send(stringToSend);
 });
-
-
-
-
-
 // if a user visits any other route, print 'sorry, page not found. What are you doing with your life?'
-
-
+app.get('*', (req,res) => {
+  res.send('Sorry, page not found... What are you doing with your life?');
+})
 app.listen(port, host, () => { console.log('server listening') });
